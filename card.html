@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anime Birthday Card 🌸</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Nunito", sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 20px;
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      /* Animated sakura petals */
+      .sakura {
+        position: absolute;
+        color: #ff69b4;
+        font-size: 18px;
+        animation: sakura-dance 12s linear infinite;
+        pointer-events: none;
+      }
+
+      .sakura:nth-child(2n) {
+        color: #ff1493;
+        animation-delay: 1s;
+        animation-duration: 15s;
+      }
+      .sakura:nth-child(3n) {
+        color: #ffc0cb;
+        animation-delay: 2s;
+        animation-duration: 8s;
+      }
+      .sakura:nth-child(4n) {
+        color: #ffb6c1;
+        animation-delay: 3s;
+        animation-duration: 10s;
+      }
+      .sakura:nth-child(5n) {
+        color: #ff69b4;
+        animation-delay: 4s;
+        animation-duration: 14s;
+      }
+
+      .sakura:nth-child(1) {
+        left: 5%;
+      }
+      .sakura:nth-child(2) {
+        left: 15%;
+      }
+      .sakura:nth-child(3) {
+        left: 25%;
+      }
+      .sakura:nth-child(4) {
+        left: 35%;
+      }
+      .sakura:nth-child(5) {
+        left: 45%;
+      }
+      .sakura:nth-child(6) {
+        left: 55%;
+      }
+      .sakura:nth-child(7) {
+        left: 65%;
+      }
+      .sakura:nth-child(8) {
+        left: 75%;
+      }
+      .sakura:nth-child(9) {
+        left: 85%;
+      }
+      .sakura:nth-child(10) {
+        left: 95%;
+      }
+
+      @keyframes sakura-dance {
+        0% {
+          transform: translateY(-100vh) rotate(0deg);
+          opacity: 0.8;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      /* Floating anime elements */
+      .anime-float {
+        position: absolute;
+        font-size: 40px;
+        animation: anime-float 5s ease-in-out infinite;
+        pointer-events: none;
+      }
+
+      .float-1 {
+        left: 3%;
+        top: 15%;
+        animation-delay: 0s;
+      }
+      .float-2 {
+        right: 3%;
+        top: 20%;
+        animation-delay: 1.5s;
+      }
+      .float-3 {
+        left: 5%;
+        bottom: 25%;
+        animation-delay: 3s;
+      }
+      .float-4 {
+        right: 5%;
+        bottom: 20%;
+        animation-delay: 4.5s;
+      }
+
+      @keyframes anime-float {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg) scale(1);
+          opacity: 0.7;
+        }
+        50% {
+          transform: translateY(-20px) rotate(10deg) scale(1.1);
+          opacity: 1;
+        }
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border-radius: 30px;
+        padding: 50px;
+        margin: 40px auto;
+        max-width: 650px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        position: relative;
+        z-index: 10;
+        border: 4px solid #ff69b4;
+      }
+
+      h1 {
+        font-size: 3.2em;
+        font-weight: 800;
+        background: linear-gradient(45deg, #ff69b4, #ff1493, #8a2be2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 25px;
+        animation: title-glow 3s ease-in-out infinite alternate;
+        text-align: center;
+        position: relative;
+      }
+
+      @keyframes title-glow {
+        from {
+          filter: drop-shadow(0 0 5px #ff69b4);
+          transform: scale(1);
+        }
+        to {
+          filter: drop-shadow(0 0 20px #ff69b4) drop-shadow(0 0 30px #ff1493);
+          transform: scale(1.02);
+        }
+      }
+
+      .anime-mascot {
+        font-size: 5em;
+        margin: 25px 0;
+        text-align: center;
+        animation: mascot-bounce 2.5s ease-in-out infinite;
+        cursor: pointer;
+        filter: drop-shadow(0 0 15px #ff69b4);
+      }
+
+      @keyframes mascot-bounce {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        25% {
+          transform: translateY(-15px) rotate(-3deg);
+        }
+        50% {
+          transform: translateY(-8px) rotate(0deg);
+        }
+        75% {
+          transform: translateY(-15px) rotate(3deg);
+        }
+      }
+
+      .kawaii-icons {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        margin: 30px 0;
+        font-size: 2.8em;
+      }
+
+      .kawaii-icon {
+        animation: kawaii-dance 3s ease-in-out infinite;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        filter: drop-shadow(0 0 8px rgba(255, 105, 180, 0.6));
+      }
+
+      .kawaii-icon:hover {
+        transform: scale(1.4) rotate(20deg);
+        filter: drop-shadow(0 0 20px rgba(255, 105, 180, 1));
+      }
+
+      .kawaii-icon:nth-child(1) {
+        animation-delay: 0s;
+      }
+      .kawaii-icon:nth-child(2) {
+        animation-delay: 0.4s;
+      }
+      .kawaii-icon:nth-child(3) {
+        animation-delay: 0.8s;
+      }
+      .kawaii-icon:nth-child(4) {
+        animation-delay: 1.2s;
+      }
+
+      @keyframes kawaii-dance {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 0.8;
+        }
+        50% {
+          transform: translateY(-12px) rotate(5deg);
+          opacity: 1;
+        }
+      }
+
+      .message {
+        font-size: 1.5em;
+        color: #4a4a4a;
+        margin: 35px 0;
+        font-weight: 600;
+        line-height: 1.7;
+        text-align: center;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      .message::before {
+        content: "💬";
+        position: absolute;
+        left: -40px;
+        top: 0;
+        font-size: 1.2em;
+        opacity: 0.7;
+      }
+
+      .voucher {
+        background: linear-gradient(
+          135deg,
+          #ff9a9e 0%,
+          #fecfef 50%,
+          #fad0c4 100%
+        );
+        padding: 25px;
+        margin: 35px 0;
+        border-radius: 20px;
+        font-size: 1.4em;
+        color: #2c3e50;
+        font-weight: 700;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        position: relative;
+        overflow: hidden;
+        border: 3px dashed #ff69b4;
+        text-align: center;
+      }
+
+      .voucher::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        animation: voucher-shine 3s linear infinite;
+      }
+
+      @keyframes voucher-shine {
+        0% {
+          transform: translateX(-100%) translateY(-100%) rotate(45deg);
+        }
+        100% {
+          transform: translateX(100%) translateY(100%) rotate(45deg);
+        }
+      }
+
+      .voucher-icon {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 2.5em;
+        animation: gift-wiggle 2s ease-in-out infinite;
+      }
+
+      @keyframes gift-wiggle {
+        0%,
+        100% {
+          transform: rotate(-10deg);
+        }
+        50% {
+          transform: rotate(10deg);
+        }
+      }
+
+      .voucher strong {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 10px 17px;
+        border-radius: 25px;
+        color: #ff1493;
+        letter-spacing: 2px;
+        font-family: "Courier New", monospace;
+        font-size: 1.1em;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .anime-quote {
+        font-size: 1.2em;
+        color: #8a2be2;
+        margin-top: 25px;
+        font-style: italic;
+        font-weight: 600;
+        text-align: center;
+        opacity: 0.8;
+      }
+
+      /* Magical sparkle effects */
+      .magic-sparkle {
+        position: absolute;
+        font-size: 1.8em;
+        animation: sparkle-twinkle 2s ease-in-out infinite alternate;
+        pointer-events: none;
+      }
+
+      .sparkle-1 {
+        top: 12%;
+        left: 12%;
+        animation-delay: 0s;
+      }
+      .sparkle-2 {
+        top: 18%;
+        right: 15%;
+        animation-delay: 0.7s;
+      }
+      .sparkle-3 {
+        bottom: 25%;
+        left: 18%;
+        animation-delay: 1.4s;
+      }
+      .sparkle-4 {
+        bottom: 20%;
+        right: 12%;
+        animation-delay: 2.1s;
+      }
+
+      @keyframes sparkle-twinkle {
+        from {
+          opacity: 0.4;
+          transform: scale(0.8) rotate(0deg);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1.3) rotate(180deg);
+        }
+      }
+
+      /* Chibi character helpers */
+      .chibi-helper {
+        position: absolute;
+        font-size: 3.5em;
+        animation: chibi-wiggle 4s ease-in-out infinite;
+        pointer-events: none;
+      }
+
+      .chibi-left {
+        left: 1%;
+        top: 35%;
+        animation-delay: 0s;
+      }
+      .chibi-right {
+        right: 1%;
+        top: 40%;
+        animation-delay: 2s;
+      }
+
+      @keyframes chibi-wiggle {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        25% {
+          transform: translateY(-8px) rotate(-2deg);
+        }
+        50% {
+          transform: translateY(-4px) rotate(0deg);
+        }
+        75% {
+          transform: translateY(-8px) rotate(2deg);
+        }
+      }
+
+      /* Interactive heart effects */
+      .floating-heart {
+        position: absolute;
+        font-size: 2em;
+        color: #ff69b4;
+        animation: heart-float 6s ease-in-out infinite;
+        pointer-events: none;
+      }
+
+      .heart-1 {
+        left: 8%;
+        top: 50%;
+        animation-delay: 0s;
+      }
+      .heart-2 {
+        right: 8%;
+        top: 55%;
+        animation-delay: 2s;
+      }
+      .heart-3 {
+        left: 12%;
+        top: 75%;
+        animation-delay: 4s;
+      }
+
+      @keyframes heart-float {
+        0%,
+        100% {
+          transform: translateY(0) scale(1);
+          opacity: 0.6;
+        }
+        50% {
+          transform: translateY(-25px) scale(1.2);
+          opacity: 1;
+        }
+      }
+
+      /* Static corner cards */
+      .corner-cards {
+        position: fixed;
+        z-index: 5;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+
+      .corner-card {
+        width: 120px;
+        height: 160px;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        border: 3px solid #ff69b4;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: #333;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        position: absolute;
+        pointer-events: auto;
+      }
+
+      .corner-card:hover {
+        transform: scale(1.1) rotate(5deg);
+        box-shadow: 0 15px 35px rgba(255, 105, 180, 0.4);
+      }
+
+      .corner-card img {
+        width: 80px;
+        height: 80px;
+        border-radius: 10px;
+        object-fit: cover;
+        margin-bottom: 8px;
+      }
+
+      .corner-card-title {
+        font-size: 0.9em;
+        font-weight: 600;
+        text-align: center;
+        color: #ff1493;
+      }
+
+      .top-left {
+        top: 20px;
+        left: 20px;
+      }
+
+      .bottom-left {
+        top: 200px;
+        left: 20px;
+      }
+
+      .top-right {
+        top: 20px;
+        right: 20px;
+      }
+
+      .bottom-right {
+        top: 200px;
+        right: 20px;
+      }
+
+      .flip-container {
+        perspective: 1000px;
+        width: 100%;
+        max-width: 650px;
+        margin: 40px auto;
+        cursor: pointer;
+      }
+
+      .flipper {
+        position: relative;
+        width: 100%;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+      }
+
+      .flip-container.flip .flipper {
+        transform: rotateY(180deg);
+      }
+
+      .front,
+      .back {
+        position: absolute;
+        width: 100%;
+        backface-visibility: hidden;
+        top: 0;
+        left: 0;
+      }
+
+      .front {
+        z-index: 2;
+      }
+
+      .back {
+        transform: rotateY(180deg);
+        z-index: 1;
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 10px;
+        }
+
+        .card {
+          margin: 15px auto;
+          padding: 30px 20px;
+          max-width: 100%;
+        }
+
+        h1 {
+          font-size: 2.2em;
+        }
+
+        .anime-mascot {
+          font-size: 3.5em;
+        }
+
+        .kawaii-icons {
+          font-size: 2em;
+          gap: 15px;
+        }
+
+        .message {
+          font-size: 1.2em;
+          margin: 25px 0;
+        }
+
+        .voucher {
+          padding: 20px;
+          font-size: 1.2em;
+        }
+
+        .corner-card {
+          width: 90px;
+          height: 120px;
+        }
+
+        .corner-card img {
+          width: 60px;
+          height: 60px;
+        }
+
+        .corner-card-title {
+          font-size: 0.75em;
+        }
+
+        .top-left,
+        .bottom-left {
+          left: 10px;
+        }
+
+        .top-right,
+        .bottom-right {
+          right: 10px;
+        }
+
+        .bottom-left {
+          top: 140px;
+        }
+
+        .bottom-right {
+          top: 140px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .card {
+          padding: 25px 15px;
+        }
+
+        h1 {
+          font-size: 1.8em;
+        }
+
+        .anime-mascot {
+          font-size: 3em;
+        }
+
+        .kawaii-icons {
+          font-size: 1.8em;
+          gap: 10px;
+        }
+
+        .message {
+          font-size: 1.1em;
+        }
+
+        .corner-card {
+          width: 75px;
+          height: 100px;
+        }
+
+        .corner-card img {
+          width: 50px;
+          height: 50px;
+        }
+
+        .corner-card-title {
+          font-size: 0.7em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sakura petals background -->
+    <div class="sakura">🌸</div>
+    <div class="sakura">🌸</div>
+    <div class="sakura">🌸</div>
+    <div class="sakura">🌸</div>
+    <div class="sakura">🌸</div>
+    <div class="sakura">🌸</div>
+    <div class="sakura">🌸</div>
+    <div class="sakura">🌸</div>
+    <div class="sakura">🌸</div>
+    <div class="sakura">🌸</div>
+
+    <!-- Floating anime elements -->
+    <div class="anime-float float-1">🌟</div>
+    <div class="anime-float float-2">✨</div>
+    <div class="anime-float float-3">💫</div>
+    <div class="anime-float float-4">⭐</div>
+
+    <!-- Magic sparkles -->
+    <div class="magic-sparkle sparkle-1">✨</div>
+    <div class="magic-sparkle sparkle-2">🌟</div>
+    <div class="magic-sparkle sparkle-3">💫</div>
+    <div class="magic-sparkle sparkle-4">⭐</div>
+
+    <!-- Chibi helpers -->
+    <div class="chibi-helper chibi-left">🧚‍♀️</div>
+    <div class="chibi-helper chibi-right">🦄</div>
+
+    <!-- Floating hearts -->
+    <div class="floating-heart heart-1">💕</div>
+    <div class="floating-heart heart-2">💖</div>
+    <div class="floating-heart heart-3">💗</div>
+
+    <!-- Static corner cards -->
+    <div class="corner-cards">
+      <a
+        href="#"
+        class="corner-card top-left"
+        onclick="openLink('https://www.instagram.com/p/DKuknnnTuKW/')"
+      >
+        <img src="src/photo/photo1.jpg?height=80&width=80" alt="Photo 1" />
+        <div class="corner-card-title">Your Art</div>
+      </a>
+
+      <a
+        href="#"
+        class="corner-card bottom-left"
+        onclick="openLink('https://www.instagram.com/p/DJwRK-vTEC8/')"
+      >
+        <img src="src/photo/photo2.jpg?height=80&width=80" alt="Photo 2" />
+        <div class="corner-card-title">Your Art</div>
+      </a>
+
+      <a
+        href="#"
+        class="corner-card top-right"
+        onclick="openLink('https://www.instagram.com/p/DHRmKn6T1aH/?img_index=1')"
+      >
+        <img src="src/photo/photo3.jpg?height=80&width=80" alt="Photo 3" />
+        <div class="corner-card-title">Your Art</div>
+      </a>
+
+      <a
+        href="#"
+        class="corner-card bottom-right"
+        onclick="openLink('https://www.instagram.com/p/DM8CbmjTLRm/')"
+      >
+        <img src="src/photo/photo4.jpg?height=80&width=80" alt="Photo 4" />
+        <div class="corner-card-title">Your Art</div>
+      </a>
+    </div>
+
+    <div class="flip-container" onclick="toggleFlip(this)">
+      <div class="flipper">
+        <div class="front">
+          <div class="card">
+            <h1>🌸 Happy Birthday Nadya-chan! 🌸</h1>
+            <div class="kawaii-icons">
+              <span class="kawaii-icon">🌸</span>
+              <span class="kawaii-icon">🎀</span>
+              <span class="kawaii-icon">💖</span>
+              <span class="kawaii-icon">🦄</span>
+            </div>
+            <div class="anime-mascot" onclick="celebrateMascot(event)">🎂</div>
+            <p class="message">
+              Tanjoubi omedetou gozaimasu! ✨<br />
+              Semoga tahun ini penuh dengan keajaiban, kebahagiaan, dan semua
+              hal kawaii! Genki de ite kudasai! (◕‿◕)♡
+            </p>
+            <div class="voucher">
+              <!-- <div class="voucher-icon">🎁</div> -->
+              Otanjoubi present: <strong>ANIME-GIFT-2024</strong>
+              <div style="margin-top: 10px; font-size: 0.9em; opacity: 0.8">
+                Special kawaii gramedia voucher desu! ♡(˃͈ દ ˂͈ ༶ )
+              </div>
+            </div>
+            <p class="anime-quote">
+              "Kokoro wo komete... with all my heart! 💕"<br />
+              <small>- From your friend ⭐</small>
+            </p>
+          </div>
+        </div>
+        <div class="back">
+          <div class="card">
+            <h2 style="text-align: center">💌 Special Message 💌</h2>
+            <p class="message">
+              Terima kasih sudah jadi teman yang berarti.<br />
+              Semoga semua impianmu segera terwujud dan hari-harimu selalu
+              cerah! 🎉<br />
+              Ingatlah, kamu selalu dihargai dan disayangi.<br />
+              Stay kawaii, Nadya-chan~ (づ｡◕‿‿◕｡)づ<br />
+              Oh iya, kamu nggak perlu cari tahu siapa aku, dan kalaupun tahu,
+              cukup sampai di situ saja ya, hahaha. 😊
+            </p>
+
+            <p class="anime-quote">"Your smile is my sunshine ☀️"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- UI Kontrol -->
+    <div
+      style="
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9999;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 10px 15px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      "
+    >
+      <button
+        id="playPauseBtn"
+        style="
+          background: none;
+          border: none;
+          font-size: 1.5em;
+          cursor: pointer;
+        "
+      >
+        ▶️
+      </button>
+      <input
+        type="range"
+        id="volumeControl"
+        min="0"
+        max="1"
+        step="0.01"
+        value="0.5"
+        style="cursor: pointer"
+      />
+    </div>
+
+    <!-- Audio -->
+    <audio id="bgMusic" loop>
+      <source src="src/audio/HBD.mp3" type="audio/mp3" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <script>
+      function celebrateMascot() {
+        const mascot = document.querySelector(".anime-mascot");
+
+        // Mascot celebration animation
+        mascot.style.animation = "none";
+        mascot.style.transform = "scale(1.5) rotate(720deg)";
+
+        setTimeout(() => {
+          mascot.style.animation = "mascot-bounce 2.5s ease-in-out infinite";
+          mascot.style.transform = "scale(1)";
+        }, 800);
+
+        // Create magical anime effects
+        createMagicalEffects();
+      }
+
+      function createMagicalEffects() {
+        const animeEffects = [
+          "🌸",
+          "✨",
+          "💖",
+          "🎀",
+          "⭐",
+          "💫",
+          "🌟",
+          "🦄",
+          "🌈",
+          "💕",
+          "🧚‍♀️",
+          "🎭",
+          "🎪",
+          "🎨",
+          "🎵",
+          "💗",
+        ];
+
+        for (let i = 0; i < 25; i++) {
+          const effect = document.createElement("div");
+          effect.innerHTML =
+            animeEffects[Math.floor(Math.random() * animeEffects.length)];
+          effect.style.position = "absolute";
+          effect.style.left = Math.random() * window.innerWidth + "px";
+          effect.style.top = Math.random() * window.innerHeight + "px";
+          effect.style.fontSize = Math.random() * 30 + 20 + "px";
+          effect.style.pointerEvents = "none";
+          effect.style.zIndex = "1000";
+          effect.style.animation = "magical-burst 3s ease-out forwards";
+          document.body.appendChild(effect);
+
+          setTimeout(() => {
+            effect.remove();
+          }, 3000);
+        }
+
+        // Add screen shake effect
+        document.body.style.animation = "kawaii-shake 0.6s ease-in-out";
+        setTimeout(() => {
+          document.body.style.animation = "";
+        }, 600);
+      }
+
+      // Add magical burst animation
+      const style = document.createElement("style");
+      style.textContent = `
+            @keyframes magical-burst {
+                0% {
+                    opacity: 1;
+                    transform: scale(0) rotate(0deg);
+                }
+                25% {
+                    opacity: 1;
+                    transform: scale(1.3) rotate(90deg);
+                }
+                50% {
+                    opacity: 0.8;
+                    transform: scale(1.1) rotate(180deg);
+                }
+                100% {
+                    opacity: 0;
+                    transform: scale(0.3) rotate(360deg);
+                }
+            }
+            
+            @keyframes kawaii-shake {
+                0%, 100% { transform: translateX(0); }
+                10%, 30%, 50%, 70%, 90% { transform: translateX(-3px) rotate(-0.5deg); }
+                20%, 40%, 60%, 80% { transform: translateX(3px) rotate(0.5deg); }
+            }
+        `;
+      document.head.appendChild(style);
+
+      // Interactive kawaii icons
+      document.querySelectorAll(".kawaii-icon").forEach((icon, index) => {
+        icon.addEventListener("click", function () {
+          this.style.animation = "none";
+          this.style.transform = `scale(1.8) rotate(${360 * (index + 1)}deg)`;
+
+          // Create mini celebration
+          const miniEffect = document.createElement("div");
+          miniEffect.innerHTML = this.innerHTML;
+          miniEffect.style.position = "absolute";
+          miniEffect.style.left = this.offsetLeft + "px";
+          miniEffect.style.top = this.offsetTop + "px";
+          miniEffect.style.fontSize = "3em";
+          miniEffect.style.pointerEvents = "none";
+          miniEffect.style.zIndex = "999";
+          miniEffect.style.animation = "mini-pop 1s ease-out forwards";
+          document.body.appendChild(miniEffect);
+
+          setTimeout(() => {
+            this.style.animation = "kawaii-dance 3s ease-in-out infinite";
+            this.style.transform = "scale(1)";
+            miniEffect.remove();
+          }, 1000);
+        });
+      });
+
+      // Add mini pop animation
+      style.textContent += `
+            @keyframes mini-pop {
+                0% {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+                50% {
+                    opacity: 1;
+                    transform: scale(2) translateY(-50px);
+                }
+                100% {
+                    opacity: 0;
+                    transform: scale(0.5) translateY(-100px);
+                }
+            }
+        `;
+
+      // Function to handle card links
+      function openLink(url) {
+        window.open(url, "_blank");
+      }
+
+      function toggleFlip(cardElement) {
+        cardElement.classList.toggle("flip");
+      }
+
+      // Agar klik 🎂 tidak membalik kartu:
+      function celebrateMascot(event) {
+        event.stopPropagation(); // Stop bubbling ke parent
+        const mascot = event.target;
+
+        mascot.style.animation = "none";
+        mascot.style.transform = "scale(1.5) rotate(720deg)";
+
+        setTimeout(() => {
+          mascot.style.animation = "mascot-bounce 2.5s ease-in-out infinite";
+          mascot.style.transform = "scale(1)";
+        }, 800);
+
+        createMagicalEffects();
+      }
+    </script>
+    <script>
+      const audio = document.getElementById("bgMusic");
+      const playBtn = document.getElementById("playPauseBtn");
+      const volumeSlider = document.getElementById("volumeControl");
+
+      // Set initial volume
+      audio.volume = volumeSlider.value;
+
+      let isPlaying = false;
+
+      playBtn.addEventListener("click", () => {
+        if (!isPlaying) {
+          audio
+            .play()
+            .then(() => {
+              isPlaying = true;
+              playBtn.textContent = "⏸️";
+            })
+            .catch((err) => {
+              console.error("Autoplay blocked:", err);
+              alert("Klik dulu tombol ini untuk memulai musik ya!");
+            });
+        } else {
+          audio.pause();
+          isPlaying = false;
+          playBtn.textContent = "▶️";
+        }
+      });
+
+      volumeSlider.addEventListener("input", (e) => {
+        audio.volume = e.target.value;
+      });
+    </script>
+  </body>
+</html>

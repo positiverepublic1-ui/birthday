@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birthday Game 🌸</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Nunito", sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 10px;
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      /* Animated background sakura petals */
+      .sakura {
+        position: absolute;
+        color: #ff69b4;
+        font-size: 20px;
+        animation: sakura-fall 8s linear infinite;
+        pointer-events: none;
+      }
+
+      .sakura:nth-child(2n) {
+        color: #ff1493;
+        animation-delay: 1s;
+        animation-duration: 10s;
+      }
+
+      .sakura:nth-child(3n) {
+        color: #ffc0cb;
+        animation-delay: 2s;
+        animation-duration: 6s;
+      }
+
+      .sakura:nth-child(4n) {
+        color: #ffb6c1;
+        animation-delay: 3s;
+        animation-duration: 9s;
+      }
+
+      @keyframes sakura-fall {
+        0% {
+          transform: translateY(-100vh) rotate(0deg);
+          opacity: 0.8;
+        }
+        100% {
+          transform: translateY(100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      /* Floating anime stars */
+      .anime-star {
+        position: absolute;
+        font-size: clamp(20px, 4vw, 25px);
+        animation: float-sparkle 4s ease-in-out infinite;
+        pointer-events: none;
+      }
+
+      .anime-star:nth-child(1) {
+        left: 5%;
+        top: 20%;
+        animation-delay: 0s;
+      }
+      .anime-star:nth-child(2) {
+        right: 5%;
+        top: 15%;
+        animation-delay: 1s;
+      }
+      .anime-star:nth-child(3) {
+        left: 10%;
+        top: 60%;
+        animation-delay: 0.5s;
+      }
+      .anime-star:nth-child(4) {
+        right: 10%;
+        top: 65%;
+        animation-delay: 1.5s;
+      }
+
+      @keyframes float-sparkle {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg) scale(1);
+          opacity: 0.7;
+        }
+        50% {
+          transform: translateY(-20px) rotate(180deg) scale(1.2);
+          opacity: 1;
+        }
+      }
+
+      .container {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(15px);
+        border-radius: 25px;
+        padding: clamp(25px, 5vw, 40px);
+        margin: clamp(20px, 5vh, 50px) auto;
+        max-width: min(90vw, 550px);
+        width: 100%;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        position: relative;
+        z-index: 10;
+        border: 3px solid #ff69b4;
+      }
+
+      .container::before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+        background: linear-gradient(45deg, #ff69b4, #ff1493, #ffc0cb, #ffb6c1);
+        border-radius: 25px;
+        z-index: -1;
+        opacity: 0.3;
+        animation: kawaii-glow 3s ease-in-out infinite alternate;
+      }
+
+      @keyframes kawaii-glow {
+        from {
+          opacity: 0.2;
+          transform: scale(1);
+        }
+        to {
+          opacity: 0.4;
+          transform: scale(1.02);
+        }
+      }
+
+      h1 {
+        font-size: clamp(1.8em, 6vw, 2.8em);
+        font-weight: 800;
+        background: linear-gradient(45deg, #ff69b4, #ff1493, #8a2be2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 20px;
+        animation: anime-bounce 2s ease-in-out infinite;
+        text-align: center;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      @keyframes anime-bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-15px) rotate(-2deg);
+        }
+        60% {
+          transform: translateY(-8px) rotate(2deg);
+        }
+      }
+
+      .anime-character {
+        font-size: clamp(3em, 8vw, 4em);
+        margin: 20px 0;
+        animation: character-dance 3s ease-in-out infinite;
+        cursor: pointer;
+        filter: drop-shadow(0 0 10px #ff69b4);
+        text-align: center;
+      }
+
+      @keyframes character-dance {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        25% {
+          transform: translateY(-10px) rotate(-5deg);
+        }
+        50% {
+          transform: translateY(-5px) rotate(0deg);
+        }
+        75% {
+          transform: translateY(-10px) rotate(5deg);
+        }
+      }
+
+      p {
+        font-size: clamp(1.1em, 3vw, 1.3em);
+        color: #4a4a4a;
+        margin-bottom: 30px;
+        font-weight: 600;
+        text-align: center;
+      }
+
+      .kawaii-elements {
+        display: flex;
+        justify-content: space-around;
+        margin: 25px 0;
+        font-size: clamp(1.8em, 5vw, 2.2em);
+      }
+
+      .kawaii-icon {
+        animation: kawaii-pulse 2s ease-in-out infinite;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        filter: drop-shadow(0 0 5px rgba(255, 105, 180, 0.5));
+      }
+
+      .kawaii-icon:hover {
+        transform: scale(1.3) rotate(15deg);
+        filter: drop-shadow(0 0 15px rgba(255, 105, 180, 0.8));
+      }
+
+      .kawaii-icon:nth-child(1) {
+        animation-delay: 0s;
+      }
+      .kawaii-icon:nth-child(2) {
+        animation-delay: 0.3s;
+      }
+      .kawaii-icon:nth-child(3) {
+        animation-delay: 0.6s;
+      }
+      .kawaii-icon:nth-child(4) {
+        animation-delay: 0.9s;
+      }
+
+      @keyframes kawaii-pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.8;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 1;
+        }
+      }
+
+      .game-section {
+        background: linear-gradient(135deg, #ff69b4, #ff1493);
+        padding: clamp(20px, 5vw, 30px);
+        border-radius: 20px;
+        margin: 20px 0;
+        box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .game-section::before {
+        content: "✨";
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: clamp(1.5em, 4vw, 2em);
+        animation: sparkle-rotate 2s linear infinite;
+      }
+
+      @keyframes sparkle-rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      input {
+        padding: clamp(12px, 3vw, 15px) clamp(20px, 5vw, 25px);
+        margin: 10px;
+        font-size: clamp(16px, 4vw, 18px);
+        border: 3px solid #ff69b4;
+        border-radius: 50px;
+        outline: none;
+        background: white;
+        box-shadow: 0 8px 20px rgba(255, 105, 180, 0.3);
+        transition: all 0.3s ease;
+        font-family: "Nunito", sans-serif;
+        font-weight: 600;
+        text-align: center;
+        width: 100%;
+        max-width: 280px;
+      }
+
+      input:focus {
+        border-color: #8a2be2;
+        transform: scale(1.05);
+        box-shadow: 0 12px 30px rgba(138, 43, 226, 0.4);
+      }
+
+      button {
+        padding: clamp(12px, 3vw, 15px) clamp(25px, 6vw, 35px);
+        margin: 15px;
+        font-size: clamp(16px, 4vw, 18px);
+        cursor: pointer;
+        background: linear-gradient(135deg, #ff69b4, #8a2be2);
+        border: none;
+        border-radius: 50px;
+        color: white;
+        font-weight: 800;
+        font-family: "Nunito", sans-serif;
+        box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        white-space: nowrap;
+        width: auto;
+        min-width: 200px;
+      }
+
+      button:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 12px 30px rgba(255, 105, 180, 0.6);
+      }
+
+      button:active {
+        transform: translateY(0) scale(1);
+      }
+
+      button::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+      }
+
+      button:hover::before {
+        width: 300px;
+        height: 300px;
+      }
+
+      #message {
+        font-size: clamp(1.2em, 4vw, 1.4em);
+        color: #ff1493;
+        margin-top: 25px;
+        font-weight: bold;
+        text-align: center;
+        min-height: 40px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        padding: 0 10px;
+      }
+
+      /* Chibi characters floating around */
+      .chibi-float {
+        position: absolute;
+        font-size: clamp(2.5em, 6vw, 3em);
+        animation: chibi-movement 6s ease-in-out infinite;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .chibi-1 {
+        left: 2%;
+        top: 25%;
+        animation-delay: 0s;
+      }
+      .chibi-2 {
+        right: 2%;
+        top: 30%;
+        animation-delay: 2s;
+      }
+
+      @keyframes chibi-movement {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        33% {
+          transform: translateY(-15px) rotate(5deg);
+        }
+        66% {
+          transform: translateY(-8px) rotate(-5deg);
+        }
+      }
+
+      /* Manga-style speech bubble */
+      .speech-bubble {
+        background: white;
+        border: 3px solid #ff69b4;
+        border-radius: 20px;
+        padding: clamp(12px, 3vw, 15px);
+        margin: 20px 0;
+        position: relative;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .speech-bubble::after {
+        content: "";
+        position: absolute;
+        bottom: -12px;
+        left: 30px;
+        width: 0;
+        height: 0;
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-top: 12px solid #ff69b4;
+      }
+
+      /* Generate sakura petals */
+      .sakura:nth-child(1) {
+        left: 5%;
+      }
+      .sakura:nth-child(2) {
+        left: 15%;
+      }
+      .sakura:nth-child(3) {
+        left: 25%;
+      }
+      .sakura:nth-child(4) {
+        left: 35%;
+      }
+      .sakura:nth-child(5) {
+        left: 45%;
+      }
+      .sakura:nth-child(6) {
+        left: 55%;
+      }
+      .sakura:nth-child(7) {
+        left: 65%;
+      }
+      .sakura:nth-child(8) {
+        left: 75%;
+      }
+      .sakura:nth-child(9) {
+        left: 85%;
+      }
+      .sakura:nth-child(10) {
+        left: 95%;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        body {
+          padding: 5px;
+        }
+
+        .container {
+          margin: 10px auto;
+          border-radius: 20px;
+        }
+
+        .game-section {
+          padding: 20px 15px;
+        }
+
+        input {
+          margin: 8px 0;
+        }
+
+        button {
+          margin: 10px 0;
+          min-width: 180px;
+        }
+
+        .kawaii-elements {
+          margin: 20px 0;
+        }
+
+        .chibi-float {
+          display: none; /* Hide floating characters on mobile for better performance */
+        }
+      }
+
+      @media (max-width: 480px) {
+        .anime-star {
+          font-size: 18px;
+        }
+
+        .sakura {
+          font-size: 16px;
+        }
+
+        input {
+          max-width: 250px;
+        }
+
+        button {
+          min-width: 160px;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        .container {
+          max-width: 600px;
+        }
+      }
+
+      /* High DPI displays */
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .container {
+          backdrop-filter: blur(20px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sakura petals background -->
+    <div class="sakura">🌸</div>
+    <div class="sakura">🌸</div>
+    <div class="sakura">🌸</div>
+    <div class="sakura">🌸</div>
+    <div class="sakura">🌸</div>
+    <div class="sakura">🌸</div>
+    <div class="sakura">🌸</div>
+    <div class="sakura">🌸</div>
+    <div class="sakura">🌸</div>
+    <div class="sakura">🌸</div>
+
+    <!-- Anime stars -->
+    <div class="anime-star">⭐</div>
+    <div class="anime-star">✨</div>
+    <div class="anime-star">💫</div>
+    <div class="anime-star">🌟</div>
+
+    <!-- Floating chibi characters -->
+    <div class="chibi-float chibi-1">🎭</div>
+    <div class="chibi-float chibi-2">🎪</div>
+
+    <div class="container">
+      <h1>🌸 Birthday Quiz! 🌸</h1>
+
+      <div class="anime-character" onclick="animateCharacter()">🎂</div>
+
+      <div class="speech-bubble">
+        <p>Konnichiwa! Tebak berapa umurmu sekarang, desu ka? (◕‿◕)♡</p>
+      </div>
+
+      <div class="kawaii-elements">
+        <span class="kawaii-icon">🌸</span>
+        <span class="kawaii-icon">🎀</span>
+        <span class="kawaii-icon">💖</span>
+        <span class="kawaii-icon">🦄</span>
+      </div>
+
+      <div class="game-section">
+        <input type="number" id="ageInput" placeholder="Umurku adalah..." />
+        <button onclick="checkAge()">🌟 Kotae! (Answer!) 🌟</button>
+      </div>
+
+      <p id="message"></p>
+    </div>
+
+    <script>
+      function animateCharacter() {
+        const character = document.querySelector(".anime-character");
+        character.style.animation = "none";
+        character.style.transform = "scale(1.3) rotate(360deg)";
+
+        setTimeout(() => {
+          character.style.animation = "character-dance 3s ease-in-out infinite";
+          character.style.transform = "scale(1)";
+        }, 500);
+      }
+
+      function checkAge() {
+        const correctAge = 19; // Ganti dengan umur yang benar 🎂
+        const age = document.getElementById("ageInput").value;
+        const message = document.getElementById("message");
+
+        if (age) {
+          if (age == correctAge) {
+            message.innerHTML = "🎉 Benar! Yuk buka kartu ulang tahun!";
+            message.style.color = "#ff1493";
+
+            // Create anime-style celebration
+            createAnimeFireworks();
+            playKawaiiSound();
+
+            // Redirect to card page after 2 seconds
+            setTimeout(() => {
+              window.location.href = "card.html";
+            }, 2000);
+          } else if (age >= 1 && age <= 100) {
+            message.innerHTML = "❌ Salah, coba lagi!";
+            message.style.color = "#8a2be2";
+          } else {
+            message.innerHTML =
+              "🤔 Eh? Chotto matte... Coba lagi, onegaishimasu! (◕_◕)";
+            message.style.color = "#8a2be2";
+          }
+        } else {
+          message.innerHTML = "📝 Mou! Wasurenaide yo! (Don't forget!) (╯︵╰)";
+          message.style.color = "#ff69b4";
+        }
+      }
+
+      function createAnimeFireworks() {
+        const animeEmojis = [
+          "🌸",
+          "✨",
+          "💖",
+          "🎀",
+          "⭐",
+          "💫",
+          "🌟",
+          "🦄",
+          "🌈",
+        ];
+
+        for (let i = 0; i < 20; i++) {
+          const firework = document.createElement("div");
+          firework.innerHTML =
+            animeEmojis[Math.floor(Math.random() * animeEmojis.length)];
+          firework.style.position = "absolute";
+          firework.style.left = Math.random() * window.innerWidth + "px";
+          firework.style.top = Math.random() * window.innerHeight + "px";
+          firework.style.fontSize = Math.random() * 25 + 20 + "px";
+          firework.style.pointerEvents = "none";
+          firework.style.zIndex = "1000";
+          firework.style.animation = "anime-celebration 2.5s ease-out forwards";
+          document.body.appendChild(firework);
+
+          setTimeout(() => {
+            firework.remove();
+          }, 2500);
+        }
+      }
+
+      function playKawaiiSound() {
+        // Visual feedback for kawaii effect
+        const container = document.querySelector(".container");
+        container.style.animation = "kawaii-shake 0.5s ease-in-out";
+
+        setTimeout(() => {
+          container.style.animation = "";
+        }, 500);
+      }
+
+      // Add anime celebration animation
+      const style = document.createElement("style");
+      style.textContent = `
+            @keyframes anime-celebration {
+                0% {
+                    opacity: 1;
+                    transform: scale(0) rotate(0deg);
+                }
+                50% {
+                    opacity: 1;
+                    transform: scale(1.5) rotate(180deg);
+                }
+                100% {
+                    opacity: 0;
+                    transform: scale(0.5) rotate(360deg);
+                }
+            }
+            
+            @keyframes kawaii-shake {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-5px) rotate(-1deg); }
+                75% { transform: translateX(5px) rotate(1deg); }
+            }
+        `;
+      document.head.appendChild(style);
+
+      // Keyboard support with kawaii response
+      document
+        .getElementById("ageInput")
+        .addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            checkAge();
+          }
+        });
+
+      // Add kawaii hover effects to icons
+      document.querySelectorAll(".kawaii-icon").forEach((icon) => {
+        icon.addEventListener("click", function () {
+          this.style.animation = "kawaii-pulse 0.3s ease-in-out";
+          setTimeout(() => {
+            this.style.animation = "kawaii-pulse 2s ease-in-out infinite";
+          }, 300);
+        });
+      });
+
+      // Responsive touch events for mobile
+      if ("ontouchstart" in window) {
+        document
+          .querySelectorAll(".kawaii-icon, .anime-character")
+          .forEach((element) => {
+            element.addEventListener("touchstart", function () {
+              this.style.transform = "scale(1.1)";
+            });
+
+            element.addEventListener("touchend", function () {
+              setTimeout(() => {
+                this.style.transform = "";
+              }, 150);
+            });
+          });
+      }
+    </script>
+  </body>
+</html>
