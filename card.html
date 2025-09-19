@@ -272,7 +272,7 @@
           #fecfef 50%,
           #fad0c4 100%
         );
-        padding: 25px;
+        padding: 141px;
         margin: 35px 0;
         border-radius: 20px;
         font-size: 1.4em;
@@ -567,6 +567,53 @@
         z-index: 1;
       }
 
+      .voucher {
+        font-family: Arial, sans-serif;
+        position: relative;
+        display: inline-block;
+        font-weight: bold;
+        cursor: default;
+      }
+
+      .voucher-image,
+      .voucher-text {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none; /* agar tidak bisa di klik */
+        position: absolute;
+        top: 100%; /* muncul di bawah teks */
+        left: 0;
+        background: #fff;
+        border: 1px solid #ddd;
+        padding: 10px;
+        width: 260px; /* sesuaikan ukuran persegi panjang voucher */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        z-index: 10;
+      }
+
+      .voucher-image {
+        position: relative; /* supaya dia tidak overlap terlalu aneh */
+        width: 250px;
+        height: auto;
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .voucher:hover .voucher-image,
+      .voucher:hover .voucher-text {
+        opacity: 1;
+        pointer-events: auto;
+        position: relative;
+      }
+
+      .voucher-text {
+        font-weight: normal;
+        font-size: 0.9em;
+        opacity: 0.8;
+        margin-top: 0;
+      }
+
       @media (max-width: 768px) {
         body {
           padding: 10px;
@@ -763,10 +810,18 @@
               hal kawaii! Genki de ite kudasai! (◕‿◕)♡
             </p>
             <div class="voucher">
-              <!-- <div class="voucher-icon">🎁</div> -->
-              Otanjoubi present: <strong>ANIME-GIFT-2024</strong>
-              <div style="margin-top: 10px; font-size: 0.9em; opacity: 0.8">
+              Otanjoubi present:
+              <img
+                src="src/photo/voucher.jpeg"
+                alt="Voucher ANIME-GIFT-2025"
+                class="voucher-image"
+              />
+              <div class="voucher-text">
                 Special kawaii gramedia voucher desu! ♡(˃͈ દ ˂͈ ༶ )
+              </div>
+
+              <div class="voucher-text" style="margin-top: 20px !important">
+                Note : Please send your MyValue Gramedia account to send voucher
               </div>
             </div>
             <p class="anime-quote">
